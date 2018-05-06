@@ -1,0 +1,4 @@
+.history
+node_modules
+config/dev.js
+config/prod.js

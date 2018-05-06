@@ -1,0 +1,193 @@
+/**
+ * Set up a decent box model on the root element
+ */
+:root {
+  --color__primary: #64eb2f;
+  --color__primary--light: #66ff33;
+  --color__primary--dark: #5cba26;
+  --color__grey--light1: #faf9f9;
+  --color__grey--light2: #f4f2f2;
+  --color__grey--light3: #f0eeee;
+  --color__grey--light4: #ccc;
+  --color__grey--dark1: #333;
+  --color__grey--dark2: #777;
+  --color__grey--dark3: #999;
+  --shadow__dark: 0 2rem 6rem rgba(0, 0, 0, 0.3); }
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; }
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  color: var(--color__grey--dark2);
+  line-height: 1.6;
+  background-image: linear-gradient(to bottom right, var(--color__primary), var(--color__primary--dark));
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh; }
+
+/**
+ * Make all elements from the DOM inherit from the parent box-sizing
+ * Since `*` has a specificity of 0, it does not override the `html` value
+ * making all elements inheriting from the root box-sizing value
+ * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+*,
+*::before,
+*::after {
+  box-sizing: inherit; }
+
+/**
+ * Basic typography style for copy text
+ */
+/**
+ * Clear inner floats
+ */
+.clearfix::after {
+  clear: both;
+  content: "";
+  display: table; }
+
+.header {
+  font-size: 1.4rem;
+  padding: 2rem;
+  background-color: #fff;
+  border-bottom: var(--color__grey--light2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+.search {
+  flex: 0 0 40%;
+  display: flex;
+  align-items: center;
+  justify-items: center; }
+  .search__input {
+    font-family: inherit;
+    font-size: inherit;
+    background-color: var(--color__grey--light2);
+    border: none;
+    border-radius: 10rem;
+    padding: 0.7rem 2rem;
+    width: 90%;
+    transition: all 0.2s;
+    margin-right: -3.5rem; }
+    .search__input:focus {
+      width: 100%;
+      background-color: var(--color__grey--light3);
+      outline: none; }
+    .search__input::-webkit-input-placeholder {
+      font-weight: 100;
+      font-size: inherit;
+      color: var(--color__grey--light4); }
+  .search__input:focus + .search__button {
+    background-color: var(--color__grey--light3); }
+  .search__button {
+    border: none;
+    background-color: var(--color__grey--light2); }
+    .search__button:focus {
+      outline: none; }
+    .search__button:active {
+      transform: translateY(2px); }
+  .search__icon {
+    height: 1.5rem;
+    width: 1.5rem;
+    fill: var(--color__grey--dark3); }
+
+.user-nav {
+  display: flex;
+  align-self: flex-start;
+  align-items: center;
+  justify-content: space-around; }
+  .user-nav > * {
+    padding: 0 2rem;
+    cursor: pointer; }
+  .user-nav__icon-box {
+    position: relative; }
+  .user-nav__icon {
+    height: 2.25rem;
+    width: 2.25rem;
+    fill: var(--color__grey--dark1); }
+  .user-nav__notifications {
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 1.75rem;
+    width: 2rem;
+    border-radius: 50%;
+    background-color: var(--color__primary--light);
+    position: absolute;
+    top: 0rem;
+    right: 0.5rem; }
+
+.container {
+  max-width: 120rem;
+  margin: 8rem 8rem;
+  background-color: var(--color__grey--light1);
+  box-shadow: var(--shadow__dark);
+  min-height: 50rem; }
+
+.content {
+  display: flex; }
+
+.sidebar {
+  background-color: var(--color__grey--dark1);
+  flex: 0 0 20%;
+  display: flex;
+  padding: 2rem 0;
+  flex-direction: column;
+  justify-content: space-between; }
+  .sidebar__listGroup {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+  .sidebar__listItem {
+    position: relative;
+    list-style: none; }
+    .sidebar__listItem:not(:last-child) {
+      margin-bottom: 0.5rem; }
+  .sidebar__listItem--active {
+    transition: all 0.2s; }
+    .sidebar__listItem--active:hover {
+      background-color: var(--color__primary--dark); }
+  .sidebar__listItem::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: var(--color__primary);
+    transform: scaleY(0);
+    transition: transform 0.2s, width 0.6s cubic-bezier(1, 0, 0, 1) 0.2s, background-color 0.2s; }
+  .sidebar__listItem:hover::before, .sidebar__listItem--active::before {
+    transform: scaleY(1);
+    width: 100%; }
+  .sidebar__listItem:active::before {
+    background-color: var(--color__primary--light); }
+  .sidebar__listIcon {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 2rem;
+    fill: currentColor; }
+  .sidebar__listLink:link, .sidebar__listLink:visited {
+    text-decoration: none;
+    color: var(--color__grey--light1);
+    display: flex;
+    letter-spacing: 0.15rem;
+    z-index: 2;
+    font-size: 1.8rem;
+    padding: 1rem 2rem;
+    position: relative;
+    align-items: center; }
+  .sidebar__legal {
+    color: var(--color__grey--light4);
+    text-align: center;
+    font-size: 1.2rem; }
+
+.hotel-view {
+  flex: 1;
+  height: 60rem; }

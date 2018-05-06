@@ -1,0 +1,53 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+
+/**
+ * Set up a decent box model on the root element
+ */
+:root {
+  --color__primary: #64eb2f;
+  --color__primary--light: #66ff33;
+  --color__primary--dark: #5cba26;
+
+  --color__grey--light1: #faf9f9;
+  --color__grey--light2: #f4f2f2;
+  --color__grey--light3: #f0eeee;
+  --color__grey--light4: #ccc;
+
+  --color__grey--dark1: #333;
+  --color__grey--dark2: #777;
+  --color__grey--dark3: #999;
+
+  --shadow__dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
+}
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; // 1rem =10px 10px/16px = 62.5%;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  color: var(--color__grey--dark2);
+  line-height: 1.6;
+  background-image: linear-gradient(
+    to bottom right,
+    var(--color__primary),
+    var(--color__primary--dark)
+  );
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+/**
+ * Make all elements from the DOM inherit from the parent box-sizing
+ * Since `*` has a specificity of 0, it does not override the `html` value
+ * making all elements inheriting from the root box-sizing value
+ * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}

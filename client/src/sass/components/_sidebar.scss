@@ -1,0 +1,70 @@
+.sidebar {
+  background-color: var(--color__grey--dark1);
+  flex: 0 0 20%;
+  display: flex;
+  padding: 2rem 0;
+  flex-direction: column;
+  justify-content: space-between;
+  &__listGroup {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  &__listItem {
+    position: relative;
+    list-style: none;
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+  }
+  &__listItem--active {
+    transition: all 0.2s;
+    &:hover {
+      background-color: var(--color__primary--dark);
+    }
+  }
+  &__listItem::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: var(--color__primary);
+    transform: scaleY(0);
+    transition: transform 0.2s, width 0.6s cubic-bezier(1, 0, 0, 1) 0.2s,
+      background-color 0.2s;
+  }
+  &__listItem:hover::before,
+  &__listItem--active::before {
+    transform: scaleY(1);
+    width: 100%;
+  }
+  &__listItem:active::before {
+    background-color: var(--color__primary--light);
+  }
+  &__listIcon {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 2rem;
+    fill: currentColor;
+  }
+  &__listLink:link,
+  &__listLink:visited {
+    text-decoration: none;
+    color: var(--color__grey--light1);
+    display: flex;
+    letter-spacing: 0.15rem;
+    z-index: 2;
+    font-size: 1.8rem;
+    padding: 1rem 2rem;
+    position: relative;
+    align-items: center;
+  }
+
+  &__legal {
+    color: var(--color__grey--light4);
+    text-align: center;
+    font-size: 1.2rem;
+  }
+}

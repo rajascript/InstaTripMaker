@@ -1,0 +1,96 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+.header {
+  font-size: 1.4rem;
+  padding: 2rem;
+  background-color: #fff;
+  border-bottom: var(--color__grey--light2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+}
+
+.search {
+  flex: 0 0 40%;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  &__input {
+    font-family: inherit;
+    font-size: inherit;
+    background-color: var(--color__grey--light2);
+    border: none;
+    border-radius: 10rem;
+    padding: 0.7rem 2rem;
+    width: 90%;
+    transition: all 0.2s;
+    margin-right: -3.5rem;
+    &:focus {
+      width: 100%;
+      background-color: var(--color__grey--light3);
+      outline: none;
+    }
+    &::-webkit-input-placeholder {
+      font-weight: 100;
+      font-size: inherit;
+      color: var(--color__grey--light4);
+    }
+  }
+  &__input:focus + &__button {
+    background-color: var(--color__grey--light3);
+  }
+  &__button {
+    border: none;
+    background-color: var(--color__grey--light2);
+    &:focus {
+      outline: none;
+    }
+    &:active {
+      transform: translateY(2px);
+    }
+  }
+  &__icon {
+    height: 1.5rem;
+    width: 1.5rem;
+    fill: var(--color__grey--dark3);
+  }
+}
+
+.user-nav {
+  display: flex;
+  align-self: flex-start;
+  align-items: center;
+  justify-content: space-around;
+  & > * {
+    padding: 0 2rem;
+    cursor: pointer;
+  }
+  &__icon-box {
+    position: relative;
+  }
+  &__icon {
+    height: 2.25rem;
+    width: 2.25rem;
+    fill: var(--color__grey--dark1);
+  }
+  &__notifications {
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 1.75rem;
+    width: 2rem;
+    border-radius: 50%;
+    background-color: var(--color__primary--light);
+    position: absolute;
+    top: 0rem;
+    right: 0.5rem;
+  }
+  &__user {
+  }
+  &__username {
+  }
+}
